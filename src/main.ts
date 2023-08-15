@@ -7,9 +7,16 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: true,
+   
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
+    origin: [
+      'https://polite-kheer-7d4120.netlify.app/holidays',
+      'https://polite-kheer-7d4120.netlify.app/',
+      'https://backend-gules-phi.vercel.app/holidays',
+      'https://backend-gules-phi.vercel.app/holidays',
+      
+    ],
   });
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
